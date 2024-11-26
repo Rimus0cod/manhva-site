@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слайдер Манги</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .slider-container {
+        width: 80%;
+        max-width: 600px;
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      .slider-tabs {
+        display: flex;
+        background-color: #333;
+      }
+
+      .slider-tab {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .slider-tab.active {
+        background-color: #444;
+        font-weight: bold;
+      }
+
+      .slider-content {
+        display: none;
+        padding: 20px;
+      }
+
+      .slider-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider-tabs">
+        <div class="slider-tab active" data-target="description">Описание</div>
+        <div class="slider-tab" data-target="chapters">Главы</div>
+      </div>
+      <div class="slider-content active" id="description">
+        <h2>Описание</h2>
+        <p>Здесь будет описание манги: жанры, сюжет и прочая информация.</p>
+      </div>
+      <div class="slider-content" id="chapters">
+        <h2>Главы</h2>
+        <ul>
+          <li>Глава 1: Название главы</li>
+          <li>Глава 2: Название главы</li>
+          <li>Глава 3: Название главы</li>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll(".slider-tab");
+      const contents = document.querySelectorAll(".slider-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Удаляем активные классы
+          tabs.forEach((t) => t.classList.remove("active"));
+          contents.forEach((content) => content.classList.remove("active"));
+
+          // Добавляем активный класс к текущей вкладке и содержимому
+          tab.classList.add("active");
+          const target = document.getElementById(
+            tab.getAttribute("data-target")
+          );
+          target.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
