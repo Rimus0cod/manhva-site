@@ -29,3 +29,53 @@ btn.addEventListener('click', () => {
       btn.textContent = 'Больше';   // Меняем текст кнопки обратно
     }
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const chapterList = document.getElementById("chapter-list");
+    const showMoreButton = document.getElementById("show-more");
+    const hideMoreButton = document.getElementById("hide-more");
+  
+    const totalChapters = 149; // Общее количество глав
+    const visibleChapters = 5; // Количество глав, которые отображаются сразу
+  
+    const baseURL = "http://127.0.0.1:5500/public/tokyo%20ghoul/chapters/"; // Базовый URL для всех глав
+  
+    // Создаем список глав с вложенными ссылками
+    for (let i = 1; i <= totalChapters; i++) {
+      const chapter = document.createElement("div");
+      chapter.classList.add("chapter");
+      if (i > visibleChapters) {
+        chapter.classList.add("hidden");
+      }
+  
+      const link = document.createElement("a");
+      link.href = `${baseURL}${i}/index.html`; // Генерация ссылки для каждой главы
+      link.textContent = `Глава ${i}`;
+      link.target = "_blank"; // Открытие ссылки в новой вкладке
+      chapter.appendChild(link);
+  
+      chapterList.appendChild(chapter);
+    }
+  
+    // Показать остальные главы
+    showMoreButton.addEventListener("click", () => {
+      const hiddenChapters = document.querySelectorAll(".chapter.hidden");
+      hiddenChapters.forEach(chapter => {
+        chapter.classList.remove("hidden");
+      });
+      showMoreButton.classList.add("hidden");
+      hideMoreButton.classList.remove("hidden");
+    });
+  
+    // Скрыть дополнительные главы
+    hideMoreButton.addEventListener("click", () => {
+      const chapters = document.querySelectorAll(".chapter");
+      chapters.forEach((chapter, index) => {
+        if (index + 1 > visibleChapters) {
+          chapter.classList.add("hidden");
+        }
+      });
+      showMoreButton.classList.remove("hidden");
+      hideMoreButton.classList.add("hidden");
+    });
+  });    

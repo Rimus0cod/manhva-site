@@ -310,3 +310,50 @@ body {
     color: #fff;
     transition: .5s ease;
   }
+
+  .slider-content h1 {
+    text-decoration: underline;
+    color: #c9c9c9;
+  }
+  
+  .chapter {
+    margin: 5px 0;
+    color: #fff;
+  }
+
+  .chapter h1 {
+    color: #fff;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .button-container {
+    margin-top: 10px;
+  }
+
+  .button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+
+  .button.hide {
+    background-color: #dc3545;
+  }
+
+  .slider-content a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .slider-content a:hover {
+    color: #007bff;
+    text-decoration: underline;
+  }
