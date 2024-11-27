@@ -51,9 +51,8 @@ const template = (chapterNumber, images, prevChapter, nextChapter) => `
 }
 
 .modal-content {
- background: rgb(17,19,125);
-background: linear-gradient(180deg, rgba(17,19,125,0.9626225490196079) 0%, rgba(46,66,182,0.9542191876750701) 24%, rgba(21,49,163,0.9598214285714286) 70%, rgba(58,77,150,0.9458158263305322) 95%);
-  box-shadow: 10px 10px 40px 10px #fff;
+ background: rgb(116,116,116);
+background: linear-gradient(180deg, rgba(116,116,116,0.9626225490196079) 0%, rgba(172,172,172,0.9542191876750701) 24%, rgba(147,147,147,0.9598214285714286) 70%, rgba(199,199,199,0.9458158263305322) 95%);
   padding: 20px;
   border-radius: 10px;
   max-width: 90%; /* Адаптация под экран */
@@ -240,17 +239,6 @@ padding: 10px 15px;
       ${Array.from({ length: totalChapters }, (_, i) => `<a href="../${i + 1}/index.html">Глава ${i + 1}</a>`).join('')}
     </div>
   </div>
-  <div class="nav-bar">
-    ${prevChapter ? `<a href="../${prevChapter}/index.html"><i class='bx bx-skip-previous'></i>prew</a>` : '<span></span>'}
-    <a href="./index.html">${chapterNumber}</a>
-    ${nextChapter ? `<a href="../${nextChapter}/index.html">next<i class='bx bx-skip-next'></i></a>` : '<span></span>'}
-  </div>
-
-  <h1>Глава ${chapterNumber}</h1>
-  <div class="images">
-    ${images.map((img) => `<img src="./images/${img}" alt="Страница ${chapterNumber}">`).join('\n')}
-  </div>
-
   <div class="nav-bar">
     ${prevChapter ? `<a href="../${prevChapter}/index.html"><i class='bx bx-skip-previous'></i>prew</a>` : '<span></span>'}
     <a href="./index.html">${chapterNumber}</a>
