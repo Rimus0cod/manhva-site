@@ -35,7 +35,7 @@ btn.addEventListener('click', () => {
     const showMoreButton = document.getElementById("show-more");
     const hideMoreButton = document.getElementById("hide-more");
   
-    const totalChapters = 149; // Общее количество глав
+    const totalChapters = 145; // Общее количество глав
     const visibleChapters = 5; // Количество глав, которые отображаются сразу
   
     const baseURL = "http://127.0.0.1:5500/public/tokyo%20ghoul/chapters/"; // Базовый URL для всех глав
@@ -51,7 +51,6 @@ btn.addEventListener('click', () => {
       const link = document.createElement("a");
       link.href = `${baseURL}${i}/index.html`; // Генерация ссылки для каждой главы
       link.textContent = `Глава ${i}`;
-      link.target = "_blank"; // Открытие ссылки в новой вкладке
       chapter.appendChild(link);
   
       chapterList.appendChild(chapter);
@@ -78,4 +77,4 @@ btn.addEventListener('click', () => {
       showMoreButton.classList.remove("hidden");
       hideMoreButton.classList.add("hidden");
     });
-  });    
+  });

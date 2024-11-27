@@ -128,6 +128,7 @@ body {
 
 .add:hover {
   background-color: #780606;
+  justify-content: space-around;
 }
 
 .info-panel {
