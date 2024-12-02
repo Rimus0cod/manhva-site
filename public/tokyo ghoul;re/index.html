@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tokyo Ghoul:re read</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/public/for-all/preloader/style.css" />
+  </head>
+  <body>
+
+    <div class="loader-conteiner">
+      <img src="/public/for-all/preloader/preloader.gif" alt="" />
+    </div>
+
+    <header class="header">
+      <nav>
+        <div class="logo-container">
+          <a href="/public/index.html"><img src="/public/image/logo.webp" alt="Logo" class="logo"></a>
+          <a href="/public/index.html"><span class="site-title">Wabi & Sabi</span></a>
+          <a href="#">Каталог</a>
+          <a href="#"><i class="bx bx-search"></i> Поиск</a>
+        </div>
+      </nav>
+      <nav class="navbar">
+        <a href="#">Топы</a>
+        <a href="#">Закладки</a>
+        <a href="/public/register/index.html">User</a>
+      </nav>
+    </header>
+    
+    <section class="name">
+      <article class="card">
+        <img
+          class="card-img"
+          src="../image/resoi.jpg"
+          alt=""
+        />
+        <a class="read" href="./chapters/1/index.html""><span>Читать</span></a>
+        <button id="addBookmark" data-work-id="3" data-work-title="Tokyo Ghoul:re">Добавить в закладки</button>
+      </article>
+    </section>
+    <div class="info-panel">
+      <div class="info-block">
+        <h2 class="value">180</h2>
+        <p>Глав</p>
+      </div>
+      <div class="info-block">
+        <h2 class="value">Закончен</h2>
+        <p>Выпуск</p>
+      </div>
+      <div class="info-block">
+        <h2 class="value">Закончен</h2>
+        <p>Перевод</p>
+      </div>
+      <div class="info-block">
+        <h2 class="value">18+</h2>
+        <p>PG</p>
+      </div>
+    </div>
+
+
+      <a href="/public/tokyo ghoul;re/chapters/"></a>
+    <div class="genre-list">
+        <div class="genre">Боевик</div>
+        <div class="genre">Драма</div>
+        <div class="genre">Приключение</div>
+        <div class="genre">Психология</div>
+        <div class="genre">Сверхъестественное</div>
+        <div class="genre">Сэйнэн</div>
+        <div class="genre">Трагедия</div>
+        <div class="genre">Ужасы</div>
+        <div class="genre">Триллер</div>
+        <div class="genre">Фантистика</div>
+        <div class="genre">Фэнтези</div>
+    </div>
+
+    <div class="slider-container">
+      <!-- Вкладки -->
+      <div class="slider-tabs">
+        <div class="slider-tab active" data-target="description">Описание</div>
+        <div class="slider-tab" data-target="chapters">Главы</div>
+      </div>
+
+      <!-- Содержимое -->
+      <div class="slider-content active" id="description">
+        <h2 class="disc">Описание</h2>
+        <p class="normis-text">
+          Прошло два года с момента набега CCG на Антейку. Хотя атмосфера в Токио резко изменилась из-за возросшего влияния CCG, упыри по-прежнему представляют собой проблему, поскольку они начали проявлять осторожность, особенно террористическая организация Aogiri Tree, которая признает растущую угрозу существования CCG.<Span class="hidden-text">История начинается с Канэки Кэна, скромного студента из
+            Создание специальной команды, известной как Quinx Squad, может дать CCG толчок, необходимый для истребления нежелательных жителей Токио. Будучи людьми, перенесшими операцию, чтобы использовать особые способности упырей, они участвуют в операциях по уничтожению опасных существ. Лидер этой группы, Хайсэ Сасаки, - полуупырь, получеловек, прошедший обучение у знаменитого следователя особого класса Кишу Аримы. Однако в этом молодом человеке есть нечто большее, чем кажется на первый взгляд, поскольку неизвестные воспоминания когтями впиваются в его разум, постепенно напоминая ему о том, кем он был раньше.</Span>
+        </p>
+        <button class="more">Больше</button>
+      </div>
+      <div class="slider-content" id="chapters">
+        <h1>Список глав</h1>
+        <div id="chapter-list">
+          <!-- Главы будут добавлены через JS -->
+        </div>
+        <div class="button-container">
+          <button id="show-more" class="button">Показать ещё</button>
+          <button id="hide-more" class="button hide hidden">Скрыть</button>
+        </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="likes">
+        <h2 class="likes-title">Похожиеe</h2>
+        <article class="card-like">
+            <a href="/public/tokyo ghoul;re/index.html">
+                <img
+                  class="card-img"
+                  src="/public/image/resoi.jpg"
+                  alt=""
+                />
+              </a>
+            <p class="card-type">Manga</p>
+            <h2 class="card-tittle">Tokyo Ghoul:re</h2>
+          </article>
+          <article class="card-like">
+            <a href="/public/tokyo ghoul/index.html"
+              ><img
+                class="card-img"
+                src="/public/image/orig.jpg"
+                alt=""
+            /></a>
+            <p class="card-type">Manga</p>
+            <h2 class="card-tittle">Tokyo Ghoul</h2>
+          </article>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="/public/bookmarks.js"></script>
+    <script src="/public/for-all/preloader/script.js"></script>
+  </body>
+</html>
