@@ -20,10 +20,12 @@
     <header class="header">
       <nav>
         <div class="logo-container">
-          <a href="/index.html"
+          <a href="/public/index.html"
             ><img src="/public/image/logo.webp" alt="Logo" class="logo"
           /></a>
-          <a href="/index.html"><span class="site-title">Wabi & Sabi</span></a>
+          <a href="/public/index.html"
+            ><span class="site-title">Wabi & Sabi</span></a
+          >
           <a href="#">Каталог</a>
           <a href="#"><i class="bx bx-search"></i> Поиск</a>
         </div>
@@ -37,14 +39,14 @@
 
     <div class="conteiner">
       <div class="form-box login">
-        <form action="#">
+        <form id="loginForm" action="#">
           <h1>Login</h1>
           <div class="input-box">
-            <input type="text" placeholder="Username" required />
+            <input type="text" placeholder="Email" id="loginEmail" required />
             <i class="bx bxs-user"></i>
           </div>
           <div class="input-box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Password" id="loginPassword" required />
             <i class="bx bxs-lock-alt"></i>
           </div>
           <div class="forgot-link">
@@ -62,24 +64,37 @@
       </div>
 
       <div class="form-box register">
-        <form action="#">
+        <form id="registerForm" action="#">
           <h1>Registration</h1>
           <div class="input-box">
-            <input type="text" placeholder="Username" required name="login" />
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              name="username"
+              required
+            />
             <i class="bx bxs-user"></i>
           </div>
           <div class="input-box">
-            <input type="email" placeholder="Email" required name="email" />
-            <i class="bx bxs-user"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              id="email"
+              name="email"
+              required
+            />
+            <i class="bx bxs-envelope"></i>
           </div>
           <div class="input-box">
             <input
               type="password"
               placeholder="Password"
+              id="password"
+              name="password"
               required
-              name="pass"
             />
-            <i class="bx bxs-envelope"></i>
+            <i class="bx bxs-lock-alt"></i>
           </div>
           <button type="submit" class="btn">Register</button>
           <p>or register with social platforms</p>
