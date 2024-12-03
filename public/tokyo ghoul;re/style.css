@@ -530,3 +530,36 @@ body {
     padding: 0 5px; /* Меньший внутренний отступ контейнера */
   }
 }
+
+#reverse-list {
+  max-width: 24%;
+  text-align: start;
+  margin-top: 10px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: .5s ease-in-out;
+  background: none;
+  font-weight: 550;
+  position: relative;
+}
+
+#reverse-list:hover {
+  color: #1976d2;
+}
+
+#reverse-list::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+#reverse-list:hover::before {
+  width: 100%;
+}

@@ -1,140 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solo Leveling read</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/public/for-all/preloader/style.css" />
-  </head>
-  <body>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Solo Leveling read</title>
+      <link rel="stylesheet" href="./style.css" />
+      <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="/public/for-all/preloader/style.css" />
+      <link rel="stylesheet" href="/public/for-all/boolmarks/css.css">
+    </head>
+    <body>
 
-    <div class="loader-conteiner">
-      <img src="/public/for-all/preloader/preloader.gif" alt="" />
-    </div>
+      <div class="loader-conteiner">
+        <img src="/public/for-all/preloader/preloader.gif" alt="" />
+      </div>
 
-    <header class="header">
-      <nav>
-        <div class="logo-container">
-          <a href="/public/index.html"><img src="/public/image/logo.webp" alt="Logo" class="logo"></a>
-          <a href="/public/index.html"><span class="site-title">Wabi & Sabi</span></a>
-          <a href="#">Каталог</a>
-          <a href="#"><i class="bx bx-search"></i> Поиск</a>
+      <header class="header">
+        <nav>
+          <div class="logo-container">
+            <a href="/public/index.html"><img src="/public/image/logo.webp" alt="Logo" class="logo"></a>
+            <a href="/public/index.html"><span class="site-title">Wabi & Sabi</span></a>
+            <a href="#">Каталог</a>
+            <a href="#"><i class="bx bx-search"></i> Поиск</a>
+          </div>
+        </nav>
+        <nav class="navbar">
+          <a href="#">Топы</a>
+          <a href="#">Закладки</a>
+          <a href="/public/register/index.html">User</a>
+        </nav>
+      </header>
+      
+      <section class="name">
+        <article class="card">
+          <img
+            class="card-img"
+            src="/public/image/solo.png"
+            alt=""
+          />
+          <a class="read" href="./chapters/1/index.html""><span>Читать</span></a>
+          <button id="addBookmark" data-work-id="1" data-work-title="Sololeveling">Добавить в закладки</button>
+        </article>
+      </section>
+      <div class="info-panel">
+        <div class="info-block">
+          <h2 class="value">205</h2>
+          <p>Глав</p>
         </div>
-      </nav>
-      <nav class="navbar">
-        <a href="#">Топы</a>
-        <a href="#">Закладки</a>
-        <a href="/public/register/index.html">User</a>
-      </nav>
-    </header>
-    
-    <section class="name">
-      <article class="card">
-        <img
-          class="card-img"
-          src="/public/image/solo.png"
-          alt=""
-        />
-        <a class="read" href="./chapters/1/index.html""><span>Читать</span></a>
-        <button id="addBookmark" data-work-id="1" data-work-title="Sololeveling">Добавить в закладки</button>
-      </article>
-    </section>
-    <div class="info-panel">
-      <div class="info-block">
-        <h2 class="value">205</h2>
-        <p>Глав</p>
-      </div>
-      <div class="info-block">
-        <h2 class="value">Закончен</h2>
-        <p>Выпуск</p>
-      </div>
-      <div class="info-block">
-        <h2 class="value">Закончен</h2>
-        <p>Перевод</p>
-      </div>
-      <div class="info-block">
-        <h2 class="value">18+</h2>
-        <p>PG</p>
-      </div>
-    </div>
-
-
-      <a href="/public/tokyo ghoul/chapters/"></a>
-    <div class="genre-list">
-        <div class="genre">Боевик</div>
-        <div class="genre">Драма</div>
-        <div class="genre">Игра</div>
-        <div class="genre">Магия</div>
-        <div class="genre">Монстры</div>
-        <div class="genre">Приключения</div>
-        <div class="genre">Сверхъестественное</div>
-        <div class="genre">Сёнэн</div>
-        <div class="genre">Фантастика</div>
-        <div class="genre">Фэнтези</div>
-    </div>
-
-    <div class="slider-container">
-      <!-- Вкладки -->
-      <div class="slider-tabs">
-        <div class="slider-tab active" data-target="description">Описание</div>
-        <div class="slider-tab" data-target="chapters">Главы</div>
+        <div class="info-block">
+          <h2 class="value">Закончен</h2>
+          <p>Выпуск</p>
+        </div>
+        <div class="info-block">
+          <h2 class="value">Закончен</h2>
+          <p>Перевод</p>
+        </div>
+        <div class="info-block">
+          <h2 class="value">18+</h2>
+          <p>PG</p>
+        </div>
       </div>
 
 
-      <img src="/gcs-key.json" alt="">
-      <!-- Содержимое -->
-      <div class="slider-content active" id="description">
-        <h2 class="disc">Описание</h2>
-        <p class="normis-text">
-          Центральный персонаж манхвы, Сун Джин-Ву, является Охотником E-ранга, что делает его одним из самых слабых охотников. Его жизнь наполнена риском, так как он вынужден бороться с монстрами в низкоуровневых подземельях, чтобы зарабатывать на жизнь. Но всё меняется, когда Джин-Ву случайно находит секретное подземелье D-ранга. Это открытие и его последствия приводят к тому, что он получает уникальную способность, известную как "Система", которая позволяет ему видеть скрытые секреты и особенности поднятия своего уровня.<Span class="hidden-text"> История начинается с Канэки Кэна, скромного студента из
-            Этот поворот событий начинает его трансформацию из слабейшего охотника в сильнейшего охотника S-ранга. Сюжет манхвы завораживает своей глубиной и динамикой, предлагая читателям погрузиться в мир, где пределы человеческих возможностей постоянно расширяются, а каждое новое испытание превращается в шанс для роста и самосовершенствования.
-
-Выпущенная в 2018 году, манхва "Поднятие уровня в одиночку" постоянно расширяет свою аудиторию и завоевывает сердца любителей жанра фэнтези и приключений. Сюжет, персонажи и увлекательный мир, созданный авторами, делают эту манхву обязательной к прочтению для всех, кто ищет увлекательное чтение и новые эмоции​​​​​​.</Span>
-        </p>
-        <button class="more">Больше</button>
+        <a href="/public/tokyo ghoul/chapters/"></a>
+      <div class="genre-list">
+          <div class="genre">Боевик</div>
+          <div class="genre">Драма</div>
+          <div class="genre">Игра</div>
+          <div class="genre">Магия</div>
+          <div class="genre">Монстры</div>
+          <div class="genre">Приключения</div>
+          <div class="genre">Сверхъестественное</div>
+          <div class="genre">Сёнэн</div>
+          <div class="genre">Фантастика</div>
+          <div class="genre">Фэнтези</div>
       </div>
-      <div class="slider-content" id="chapters">
-        <h1>Список глав</h1>
-        <div id="chapter-list">
+
+      <div class="slider-container">
+        <!-- Вкладки -->
+        <div class="slider-tabs">
+          <div class="slider-tab active" data-target="description">Описание</div>
+          <div class="slider-tab" data-target="chapters">Главы</div>
+        </div>
+
+
+        <img src="/gcs-key.json" alt="">
+        <!-- Содержимое -->
+        <div class="slider-content active" id="description">
+          <h2 class="disc">Описание</h2>
+          <p class="normis-text">
+            Центральный персонаж манхвы, Сун Джин-Ву, является Охотником E-ранга, что делает его одним из самых слабых охотников. Его жизнь наполнена риском, так как он вынужден бороться с монстрами в низкоуровневых подземельях, чтобы зарабатывать на жизнь. Но всё меняется, когда Джин-Ву случайно находит секретное подземелье D-ранга. Это открытие и его последствия приводят к тому, что он получает уникальную способность, известную как "Система", которая позволяет ему видеть скрытые секреты и особенности поднятия своего уровня.<Span class="hidden-text"> История начинается с Канэки Кэна, скромного студента из
+              Этот поворот событий начинает его трансформацию из слабейшего охотника в сильнейшего охотника S-ранга. Сюжет манхвы завораживает своей глубиной и динамикой, предлагая читателям погрузиться в мир, где пределы человеческих возможностей постоянно расширяются, а каждое новое испытание превращается в шанс для роста и самосовершенствования.
+
+  Выпущенная в 2018 году, манхва "Поднятие уровня в одиночку" постоянно расширяет свою аудиторию и завоевывает сердца любителей жанра фэнтези и приключений. Сюжет, персонажи и увлекательный мир, созданный авторами, делают эту манхву обязательной к прочтению для всех, кто ищет увлекательное чтение и новые эмоции​​​​​​.</Span>
+          </p>
+          <button class="more">Больше</button>
+        </div>
+        <div class="slider-content" id="chapters">
+          <h1>Список глав</h1>
           <button id="reverse-list">Показывать с конца</button>
-          <!-- Главы будут добавлены динамически через JavaScript -->
+          <div id="chapter-list">
+            <!-- Главы будут добавлены динамически через JavaScript -->
+          </div>
+        </div>      
         </div>
-      </div>      
       </div>
-    </div>
 
-    <div class="likes">
-        <h2 class="likes-title">Похожиеe</h2>
-        <article class="card-like">
-            <a href="/public/tokyo ghoul;re/index.html">
-                <img
-                  class="card-img"
-                  src="/public/image/resoi.jpg"
-                  alt=""
-                />
-              </a>
-            <p class="card-type">Manga</p>
-            <h2 class="card-tittle">Tokyo Ghoul:re</h2>
-          </article>
+      <div class="likes">
+          <h2 class="likes-title">Похожиеe</h2>
           <article class="card-like">
-            <a href="/public/tokyo ghoul/index.html"
-              ><img
-                class="card-img"
-                src="/public/image/orig.jpg"
-                alt=""
-            /></a>
-            <p class="card-type">Manga</p>
-            <h2 class="card-tittle">Tokyo Ghoul</h2>
-          </article>
-    </div>
+              <a href="/public/tokyo ghoul;re/index.html">
+                  <img
+                    class="card-img"
+                    src="/public/image/resoi.jpg"
+                    alt=""
+                  />
+                </a>
+              <p class="card-type">Manga</p>
+              <h2 class="card-tittle">Tokyo Ghoul:re</h2>
+            </article>
+            <article class="card-like">
+              <a href="/public/tokyo ghoul/index.html"
+                ><img
+                  class="card-img"
+                  src="/public/image/orig.jpg"
+                  alt=""
+              /></a>
+              <p class="card-type">Manga</p>
+              <h2 class="card-tittle">Tokyo Ghoul</h2>
+            </article>
+      </div>
 
-    <script src="./script.js"></script>
-    <script src="/public/bookmarks.js"></script>
-    <script src="/public/for-all/preloader/script.js"></script>
-  </body>
-</html>
+      <script src="./script.js"></script>
+      <script src="/public/for-all/preloader/script.js"></script>
+    </body>
+  </html>

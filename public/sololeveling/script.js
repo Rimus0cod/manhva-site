@@ -32,17 +32,38 @@ btn.addEventListener('click', () => {
 
   document.addEventListener("DOMContentLoaded", () => {
     const chapterList = document.getElementById("chapter-list");
-    const totalChapters = 201;
-    const chaptersPerLoad = 10;
-    let loadedChapters = 0;
+    const reverseButton = document.getElementById("reverse-list");
+  
+    // Проверка на наличие элементов
+    if (!chapterList || !reverseButton) {
+      console.error("Элементы chapter-list или reverse-list не найдены!");
+      return;
+    }
+  
+    const totalChapters = 201; // Общее количество глав
+    const chaptersPerLoad = 10; // Сколько глав загружаем за раз
+    let loadedChapters = 0; // Сколько уже загружено
+    let isReversed = false; // Режим отображения (обычный/обратный)
   
     // Функция для загрузки глав
-    function loadChapters() {
-      const fragment = document.createDocumentFragment();
-      const start = loadedChapters + 1;
-      const end = Math.min(loadedChapters + chaptersPerLoad, totalChapters);
+    function loadChapters(reset = false) {
+      if (reset) {
+        chapterList.innerHTML = ""; // Очищаем список перед перезагрузкой
+        loadedChapters = 0; // Сбрасываем количество загруженных
+      }
   
-      for (let i = start; i <= end; i++) {
+      const fragment = document.createDocumentFragment();
+      const start = isReversed
+        ? totalChapters - loadedChapters
+        : loadedChapters + 1;
+      const end = Math.min(
+        isReversed
+          ? Math.max(start - chaptersPerLoad + 1, 1)
+          : loadedChapters + chaptersPerLoad,
+        totalChapters
+      );
+  
+      for (let i = start; isReversed ? i >= end : i <= end; i += isReversed ? -1 : 1) {
         const chapter = document.createElement("div");
         chapter.classList.add("chapter");
   
@@ -55,15 +76,15 @@ btn.addEventListener('click', () => {
       }
   
       chapterList.appendChild(fragment);
-      loadedChapters = end;
+      loadedChapters += chaptersPerLoad;
     }
   
-    // Загрузка первых глав:
+    // Первая загрузка глав
     loadChapters();
-
-    // Обработчик события прокрутки
+  
+    // Прокрутка для подгрузки
     chapterList.addEventListener("scroll", () => {
-      const scrollBuffer = 10; // Запас в пикселях для обработки последней прокрутки
+      const scrollBuffer = 10; // Запас для последней прокрутки
       if (
         chapterList.scrollTop + chapterList.clientHeight >=
         chapterList.scrollHeight - scrollBuffer
@@ -73,29 +94,11 @@ btn.addEventListener('click', () => {
         }
       }
     });
-  });    
-
-  document.getElementById('reverse-list').addEventListener('click', () => {
-    isReversed = !isReversed;
-    loadChapters();
-    document.getElementById('reverse-list').textContent = isReversed
-      ? 'Показать с начала'
-      : 'Показать с конца';
-  });
-
-
-  chapterList.addEventListener("scroll", () => {
-    console.log("Scroll Top:", chapterList.scrollTop);
-    console.log("Client Height:", chapterList.clientHeight);
-    console.log("Scroll Height:", chapterList.scrollHeight);
   
-    const scrollBuffer = 10; // Запас для последних пикселей
-    if (
-      chapterList.scrollTop + chapterList.clientHeight >=
-      chapterList.scrollHeight - scrollBuffer
-    ) {
-      if (loadedChapters < totalChapters) {
-        loadChapters();
-      }
-    }
-  });
+    // Обработчик кнопки реверсии
+    reverseButton.addEventListener("click", () => {
+      isReversed = !isReversed; // Меняем режим отображения
+      reverseButton.textContent = isReversed ? "Показать с начала" : "Показать с конца";
+      loadChapters(true); // Полная перезагрузка списка
+    });
+  });  

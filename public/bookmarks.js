@@ -1,21 +1,37 @@
-const addBookmarkButton = document.getElementById('addBookmark');
+document.addEventListener("DOMContentLoaded", () => {
+  const bookmarksContainer = document.querySelector("#bookmarks-container");
 
-addBookmarkButton.addEventListener('click', () => {
-  const workId = addBookmarkButton.dataset.workId; // ID произведения
-  const workTitle = addBookmarkButton.dataset.workTitle; // Название произведения
+  // Получаем закладки из LocalStorage
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-  // Получаем существующие закладки
-  let bookmarks = JSON.parse(localStorage.getItem('worksBookmarks')) || [];
-
-  // Проверяем, существует ли уже закладка
-  const isAlreadyBookmarked = bookmarks.some((bookmark) => bookmark.id === workId);
-
-  if (!isAlreadyBookmarked) {
-    // Добавляем произведение в закладки
-    bookmarks.push({ id: workId, title: workTitle });
-    localStorage.setItem('worksBookmarks', JSON.stringify(bookmarks));
-    alert(`${workTitle} добавлено в закладки!`);
-  } else {
-    alert('Это произведение уже есть в закладках.');
+  if (bookmarks.length === 0) {
+    bookmarksContainer.innerHTML = "<p>Закладок пока нет.</p>";
+    return;
   }
+
+  // Создаём элементы для каждой закладки
+  bookmarks.forEach(bookmark => {
+    const card = document.createElement("div");
+    card.classList.add("bookmark-card");
+
+    const img = document.createElement("img");
+    img.src = bookmark.image;
+    img.alt = bookmark.title;
+
+    const title = document.createElement("h2");
+    title.textContent = bookmark.title;
+
+    const link = document.createElement("a");
+    link.href = bookmark.link;
+    link.textContent = "Читать";
+    link.target = "_blank"; // Открытие в новой вкладке
+
+    // Добавляем элементы в карточку
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(link);
+
+    // Добавляем карточку в контейнер
+    bookmarksContainer.appendChild(card);
+  });
 });

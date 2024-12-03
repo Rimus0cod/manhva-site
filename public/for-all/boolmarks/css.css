@@ -1,0 +1,25 @@
+.bookmark-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .bookmark-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .bookmark-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .bookmark-card a {
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }  

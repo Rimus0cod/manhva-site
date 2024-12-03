@@ -238,8 +238,7 @@ padding: 10px 15px;
       <div class="logo-container">
           <a href="/public/index.html"><img src="/public/image/logo.webp" alt="Logo" class="logo"></a>
           <a href="/public/index.html"><span class="site-title">Wabi & Sabi</span></a>
-          <a href="#">Каталог</a>
-          <a href="#"><i class="bx bx-search"></i> Поиск</a>
+          <a href="/public/tokyo ghoul;re/index.html">Tokyo Ghoul:re</a>
         </div>
     </nav>
     <nav class="navbar">
