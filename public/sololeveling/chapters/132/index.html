@@ -22,7 +22,7 @@
   display: flex; /* Flex-контейнер */
   visibility: hidden; /* Скрыто по умолчанию */
   position: fixed;
-  z-index: 1000;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -130,7 +130,7 @@ padding: 10px 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
     .header {
-  position: relative;  
+  position: fixed;  
   top: 0;
   left: 0;
   width: 100%;
@@ -140,7 +140,7 @@ padding: 10px 15px;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box; /* Убедились, что padding включён в размеры */
-  z-index: 9999;
+  z-index: 2;
 }
     .logo-container {
   display: flex;
@@ -190,6 +190,8 @@ padding: 10px 15px;
       opacity: 999;
     }
     .nav-bar {
+    z-index: 2;
+    position:fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,7 +250,7 @@ padding: 10px 15px;
 </div>
 <div class="nav-bar">
     <a href="../131/index.html"><i class='bx bx-skip-previous'></i></a>
-    <a href="#" id="openModalButton">132</a>
+    <button id="openModalButton"> 132</button>
     <a href="../133/index.html"><i class='bx bx-skip-next'></i></a>
   </div>
   <h1>Глава 132</h1>
@@ -262,13 +264,6 @@ padding: 10px 15px;
 <img src="https://storage.googleapis.com/chapters-for-manga/sololeveling-chapters/chapters/132/images/006.jpg" alt="Страница">
 <img src="https://storage.googleapis.com/chapters-for-manga/sololeveling-chapters/chapters/132/images/007.jpg" alt="Страница">
 <img src="https://storage.googleapis.com/chapters-for-manga/sololeveling-chapters/chapters/132/images/008.jpg" alt="Страница">
-  </div>
-
-  
-  <div class="nav-bar">
-    <a href="../131/index.html"><i class='bx bx-skip-previous'></i></a>
-    <a href="#" id="openModalButton">132</a>
-    <a href="../133/index.html"><i class='bx bx-skip-next'></i></a>
   </div>
 <script>
     // Получение кнопки и модального окна

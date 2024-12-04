@@ -33,33 +33,27 @@ btn.addEventListener('click', () => {
   document.addEventListener("DOMContentLoaded", () => {
     const chapterList = document.getElementById("chapter-list");
     const reverseButton = document.getElementById("reverse-list");
+    const readButton = document.getElementById("readButton");
+    const addBookmarkButton = document.getElementById("addBookmark");
+    const workId = readButton.dataset.workId;
+    const totalChapters = 201;
+    const chaptersPerLoad = 10;
+    let loadedChapters = 0;
+    let isReversed = false;
   
-    // Проверка на наличие элементов
-    if (!chapterList || !reverseButton) {
-      console.error("Элементы chapter-list или reverse-list не найдены!");
-      return;
-    }
-  
-    const totalChapters = 201; // Общее количество глав
-    const chaptersPerLoad = 10; // Сколько глав загружаем за раз
-    let loadedChapters = 0; // Сколько уже загружено
-    let isReversed = false; // Режим отображения (обычный/обратный)
-  
-    // Функция для загрузки глав
+    // Загружаем главы
     function loadChapters(reset = false) {
+      if (!chapterList) return;
+  
       if (reset) {
-        chapterList.innerHTML = ""; // Очищаем список перед перезагрузкой
-        loadedChapters = 0; // Сбрасываем количество загруженных
+        chapterList.innerHTML = "";
+        loadedChapters = 0;
       }
   
       const fragment = document.createDocumentFragment();
-      const start = isReversed
-        ? totalChapters - loadedChapters
-        : loadedChapters + 1;
+      const start = isReversed ? totalChapters - loadedChapters : loadedChapters + 1;
       const end = Math.min(
-        isReversed
-          ? Math.max(start - chaptersPerLoad + 1, 1)
-          : loadedChapters + chaptersPerLoad,
+        isReversed ? Math.max(start - chaptersPerLoad + 1, 1) : loadedChapters + chaptersPerLoad,
         totalChapters
       );
   
@@ -68,8 +62,10 @@ btn.addEventListener('click', () => {
         chapter.classList.add("chapter");
   
         const link = document.createElement("a");
-        link.href = `http://127.0.0.1:5500/public/sololeveling/chapters/${i}/index.html`;
+        link.classList.add("chapter-link");
+        link.href = `./chapters/${i}/index.html`;
         link.textContent = `Глава ${i}`;
+        link.dataset.chapter = i;
   
         chapter.appendChild(link);
         fragment.appendChild(chapter);
@@ -79,26 +75,67 @@ btn.addEventListener('click', () => {
       loadedChapters += chaptersPerLoad;
     }
   
+    // Прокрутка для подгрузки
+    if (chapterList) {
+      chapterList.addEventListener("scroll", () => {
+        const scrollBuffer = 10;
+        if (
+          chapterList.scrollTop + chapterList.clientHeight >=
+          chapterList.scrollHeight - scrollBuffer
+        ) {
+          if (loadedChapters < totalChapters) {
+            loadChapters();
+          }
+        }
+      });
+    }
+  
+    // Кнопка реверса
+    if (reverseButton) {
+      reverseButton.addEventListener("click", () => {
+        isReversed = !isReversed;
+        reverseButton.textContent = isReversed ? "Показать с начала" : "Показать с конца";
+        loadChapters(true);
+      });
+    }
+  
+    // Прогресс чтения
+    const userProgress = JSON.parse(localStorage.getItem("readingProgress")) || {};
+    const lastChapter = userProgress[workId] || 1;
+  
+    if (readButton) {
+      readButton.href = `./chapters/${lastChapter}/index.html`;
+  
+      document.body.addEventListener("click", (e) => {
+        if (e.target.classList.contains("chapter-link")) {
+          const chapterNumber = parseInt(e.target.dataset.chapter, 10);
+          userProgress[workId] = chapterNumber;
+          localStorage.setItem("readingProgress", JSON.stringify(userProgress));
+        }
+      });
+    }
+  
+    // Добавление в закладки
+    if (addBookmarkButton) {
+      addBookmarkButton.addEventListener("click", () => {
+        const bookmark = {
+          id: workId,
+          title: addBookmarkButton.dataset.workTitle,
+          link: addBookmarkButton.dataset.workLink,
+          image: addBookmarkButton.dataset.workImg,
+        };
+  
+        const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+        if (!bookmarks.some((b) => b.id === workId)) {
+          bookmarks.push(bookmark);
+          localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+          alert("Добавлено в закладки!");
+        } else {
+          alert("Этот тайтл уже в закладках.");
+        }
+      });
+    }
+  
     // Первая загрузка глав
     loadChapters();
-  
-    // Прокрутка для подгрузки
-    chapterList.addEventListener("scroll", () => {
-      const scrollBuffer = 10; // Запас для последней прокрутки
-      if (
-        chapterList.scrollTop + chapterList.clientHeight >=
-        chapterList.scrollHeight - scrollBuffer
-      ) {
-        if (loadedChapters < totalChapters) {
-          loadChapters();
-        }
-      }
-    });
-  
-    // Обработчик кнопки реверсии
-    reverseButton.addEventListener("click", () => {
-      isReversed = !isReversed; // Меняем режим отображения
-      reverseButton.textContent = isReversed ? "Показать с начала" : "Показать с конца";
-      loadChapters(true); // Полная перезагрузка списка
-    });
   });  

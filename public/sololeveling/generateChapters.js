@@ -30,7 +30,7 @@ const template = (chapterNumber, images, prevChapter, nextChapter) => `
   display: flex; /* Flex-контейнер */
   visibility: hidden; /* Скрыто по умолчанию */
   position: fixed;
-  z-index: 1000;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -138,7 +138,7 @@ padding: 10px 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
     .header {
-  position: relative;  
+  position: fixed;  
   top: 0;
   left: 0;
   width: 100%;
@@ -148,7 +148,7 @@ padding: 10px 15px;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box; /* Убедились, что padding включён в размеры */
-  z-index: 9999;
+  z-index: 2;
 }
     .logo-container {
   display: flex;
@@ -198,6 +198,8 @@ padding: 10px 15px;
       opacity: 999;
     }
     .nav-bar {
+    z-index: 2;
+    position:fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,20 +260,13 @@ padding: 10px 15px;
 </div>
 <div class="nav-bar">
     ${prevChapter ? `<a href="../${prevChapter}/index.html"><i class='bx bx-skip-previous'></i></a>` : '<span></span>'}
-    <a href="#" id="openModalButton">${chapterNumber}</a>
+    <button id="openModalButton"> ${chapterNumber}</button>
     ${nextChapter ? `<a href="../${nextChapter}/index.html"><i class='bx bx-skip-next'></i></a>` : '<span></span>'}
   </div>
   <h1>Глава ${chapterNumber}</h1>
 
   <div class="images">
     ${images.map((img) => `<img src="https://storage.googleapis.com/chapters-for-manga/sololeveling-chapters/chapters/${chapterNumber}/images/${img}" alt="Страница">`).join('\n')}
-  </div>
-
-  
-  <div class="nav-bar">
-    ${prevChapter ? `<a href="../${prevChapter}/index.html"><i class='bx bx-skip-previous'></i></a>` : '<span></span>'}
-    <a href="#" id="openModalButton">${chapterNumber}</a>
-    ${nextChapter ? `<a href="../${nextChapter}/index.html"><i class='bx bx-skip-next'></i></a>` : '<span></span>'}
   </div>
 <script>
     // Получение кнопки и модального окна
