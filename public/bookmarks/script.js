@@ -1,31 +1,50 @@
-const bookmarkList = document.getElementById('bookmarkList');
-const bookmarks = JSON.parse(localStorage.getItem('worksBookmarks')) || [];
+document.addEventListener("DOMContentLoaded", () => {
+    const bookmarkList = document.getElementById("bookmarkList");
 
-if (bookmarks.length === 0) {
-    bookmarkList.textContent = 'Закладок нет.';
-} else {
-    bookmarks.forEach((bookmark) => {
-        // Контейнер для одной закладки
-        const bookmarkItem = document.createElement('div');
-        bookmarkItem.classList.add('bookmark-item'); // Добавляем класс для кастомизации
+    // Получаем закладки из localStorage
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-        // Изображение
-        const img = document.createElement('img');
-        img.src = bookmark.image; // Путь к изображению (например, `bookmark.image`)
-        img.alt = bookmark.title; // Альтернативный текст
-        img.classList.add('bookmark-image'); // Добавляем класс для изображения
+    if (bookmarks.length === 0) {
+      bookmarkList.innerHTML = "<p>Закладок пока нет.</p>";
+      return;
+    }
 
-        // Ссылка
-        const link = document.createElement('a');
-        link.href = `/works/${bookmark.id}`; // Ссылка на страницу произведения
-        link.textContent = bookmark.title; // Отображение названия произведения
-        link.classList.add('bookmark-link'); // Добавляем класс для ссылки
+    // Отображение всех закладок
+    bookmarks.forEach(bookmark => {
+      const card = document.createElement("div");
+      card.classList.add("bookmark-card");
 
-        // Добавляем элементы в контейнер закладки
-        bookmarkItem.appendChild(img);
-        bookmarkItem.appendChild(link);
+      const img = document.createElement("img");
+      img.src = bookmark.img;
+      img.alt = bookmark.title;
 
-        // Добавляем закладку в список
-        bookmarkList.appendChild(bookmarkItem);
+      const title = document.createElement("h3");
+      title.textContent = bookmark.title;
+
+      const link = document.createElement("a");
+      link.href = bookmark.link;
+      link.textContent = "Перейти к тайтлу";
+
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Удалить";
+      removeButton.addEventListener("click", () => {
+        removeBookmark(bookmark.title);
+        card.remove();
+        if (bookmarkList.children.length === 0) {
+          bookmarkList.innerHTML = "<p>Закладок пока нет.</p>";
+        }
+      });
+
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(link);
+      card.appendChild(removeButton);
+      bookmarkList.appendChild(card);
     });
-}
+
+    // Функция удаления закладки
+    function removeBookmark(title) {
+      const updatedBookmarks = bookmarks.filter(bookmark => bookmark.title !== title);
+      localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
+    }
+  });

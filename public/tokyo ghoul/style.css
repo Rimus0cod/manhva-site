@@ -130,6 +130,7 @@ body {
 #addBookmark:hover {
   background-color: #780606;
   justify-content: space-around;
+  transform: scale(0.987);
 }
 
 .info-panel {

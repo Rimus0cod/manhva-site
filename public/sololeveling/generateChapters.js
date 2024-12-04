@@ -242,9 +242,10 @@ padding: 10px 15px;
         </div>
     </nav>
     <nav class="navbar">
-      <a href="#">Закладки</a>
-      <a href="#">User</a>
-    </nav>
+          <a href="#">Топы</a>
+          <a href="/public/bookmarks/index.html">Закладки</a>
+          <a href="/public/register/index.html">User</a>
+        </nav>
   </header>
 
 <div id="chapterModal" class="modal">
