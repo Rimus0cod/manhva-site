@@ -315,7 +315,20 @@ chapterModal.addEventListener('click', (event) => {
     closeModal();
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const nextChapterLink = document.querySelector('.nav-bar a:last-child'); // Ссылка на следующую главу
 
+  if (nextChapterLink) {
+    // Отслеживаем прокрутку страницы
+    window.addEventListener('scroll', () => {
+      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      if (scrolledToBottom) {
+        // Если долистали до конца, переходим к следующей главе
+        nextChapterLink.click();
+      }
+    });
+  }
+});
   </script>
 </body>
 </html>

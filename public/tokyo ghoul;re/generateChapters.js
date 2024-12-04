@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { listImages } = require('./gcs'); // Подключаем модуль работы с GCS
 
-const totalChapters = 201; // Количество глав
+const totalChapters = 180; // Количество глав
 const outputDir = path.join('C:/Users/diff/code/manhva-site/public/tokyo ghoul;re/', 'chapters'); // Локальная папка для сохранения HTML
 
 // Генерация HTML-шаблона
@@ -293,6 +293,20 @@ chapterModal.addEventListener('click', (event) => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const nextChapterLink = document.querySelector('.nav-bar a:last-child'); // Ссылка на следующую главу
+
+  if (nextChapterLink) {
+    // Отслеживаем прокрутку страницы
+    window.addEventListener('scroll', () => {
+      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      if (scrolledToBottom) {
+        // Если долистали до конца, переходим к следующей главе
+        nextChapterLink.click();
+      }
+    });
+  }
+});
   </script>
 </body>
 </html>
