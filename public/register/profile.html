@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to your profile, <span id="username"></span>!</h1>
+    </header>
+    <script>
+       const checkAuth = async () => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        // Если токена нет, перенаправляем на страницу входа
+        window.location.href = '/login.html';
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:5000/api/protected-route', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (!response.ok) {
+            // Если ошибка авторизации, удаляем токен и перенаправляем на вход
+            localStorage.removeItem('token');
+            window.location.href = '/public/register/index.html';
+        } else {
+            const userData = await response.json();
+            // Отображаем данные пользователя
+            document.getElementById('username-display').textContent = `Привет, ${userData.name}`;
+        }
+    } catch (error) {
+        console.error('Ошибка проверки токена:', error);
+        localStorage.removeItem('token');
+        window.location.href = '/public/register/index.html';
+    }
+};
+
+// Вызываем проверку при загрузке страницы
+checkAuth();
+    </script>
+</body>
+</html>
