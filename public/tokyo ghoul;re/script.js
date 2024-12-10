@@ -40,7 +40,7 @@ btn.addEventListener('click', () => {
       return;
     }
   
-    const totalChapters = 201; // Общее количество глав
+    const totalChapters = 180; // Общее количество глав
     const chaptersPerLoad = 10; // Сколько глав загружаем за раз
     let loadedChapters = 0; // Сколько уже загружено
     let isReversed = false; // Режим отображения (обычный/обратный)
