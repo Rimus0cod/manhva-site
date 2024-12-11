@@ -43,37 +43,53 @@ const registerUser = async (req, res) => {
     }
 };
 
-// Логин
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: 'All fields are required' });
+        return res.status(400).json({ message: 'Email and password are required' });
     }
 
     try {
-        // Проверяем существование пользователя
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'Invalid email or password' });
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        // Сравниваем пароли
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ message: 'Invalid email or password' });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Создаем токен
-        const token = jwt.sign({ id: user._id, name: user.name }, JWT_SECRET, {
-            expiresIn: '1h'
-        });
+        const token = jwt.sign({ id: user._id, name: user.name }, JWT_SECRET, { expiresIn: '1h' });
 
         res.status(200).json({ message: 'Login successful', token });
     } catch (error) {
-        console.error('Error during login:', error);
+        console.error('Login error:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
-module.exports = { registerUser, loginUser };
+const getUserProfile = async (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1]; // Получение токена из заголовка
+
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET); // Расшифровка токена
+        const user = await User.findById(decoded.id).select('-password'); // Получаем данные пользователя без пароля
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(user); // Отправляем данные профиля
+    } catch (error) {
+        console.error('Profile error:', error);
+        res.status(500).json({ message: 'Failed to load profile' });
+    }
+};
+
+module.exports = { registerUser, loginUser, getUserProfile };
