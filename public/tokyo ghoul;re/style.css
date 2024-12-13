@@ -357,7 +357,7 @@ body {
   border: none;
   border-radius: 5px;
   margin-right: 5px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .button:hover {
@@ -390,148 +390,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Для мобильных устройств */
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-    background-size: cover;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-
-  .logo-container {
-    margin-bottom: 15px;
-  }
-
-  .header a {
-    font-size: 14px;
-    margin-left: 20px;
-  }
-
-  .name {
-    margin: 2vh auto;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-    height: auto;
-  }
-
-  .info-panel {
-    flex-direction: column;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .slider-container {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .genre-list {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-  }
-
-  .genre {
-    font-size: 12px;
-    margin: 5px;
-    padding: 5px 10px;
-  }
-
-  .likes {
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .card-like {
-    width: 90%;
-    height: auto;
-  }
-
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центровка кнопок */
-  }
-
-  .button {
-    width: 100%; /* Кнопки занимают всю ширину контейнера */
-    max-width: 300px; /* Ограничим ширину кнопки */
-    font-size: 16px; /* Увеличим текст */
-    padding: 12px 20px; /* Увеличим внутренние отступы */
-    margin-bottom: 10px; /* Отступ между кнопками */
-    border-radius: 8px; /* Закруглим углы */
-  }
-}
-
-/* Для планшетов */
-@media (max-width: 1024px) {
-  .header a {
-    font-size: 16px;
-  }
-
-  .info-panel {
-    gap: 10px;
-  }
-
-  .slider-container {
-    width: 90%;
-  }
-
-  .likes {
-    margin: 5% auto;
-  }
-}
-
-/* Общие изменения для всех меньших экранов */
-@media (max-width: 576px) {
-  .header {
-    padding: 10px;
-  }
-
-  .site-title {
-    font-size: 16px;
-  }
-
-  .name {
-    margin: 20px auto;
-  }
-
-  .info-panel {
-    padding: 10px;
-    gap: 5px;
-  }
-
-  .slider-content {
-    padding: 10px;
-  }
-
-  .genre-list {
-    font-size: 10px;
-  }
-
-  .card-like {
-    margin: 10px auto;
-  }
-
-  .button {
-    font-size: 12px; /* Уменьшаем текст для узких экранов */
-    padding: 8px 10px; /* Уменьшаем отступы */
-  }
-
-  .button-container {
-    padding: 0 5px; /* Меньший внутренний отступ контейнера */
-  }
-}
-
 #reverse-list {
   max-width: 24%;
   text-align: start;
@@ -540,7 +398,7 @@ body {
   color: #ffffff;
   cursor: pointer;
   border-radius: 5px;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
   background: none;
   font-weight: 550;
   position: relative;
@@ -563,4 +421,81 @@ body {
 
 #reverse-list:hover::before {
   width: 100%;
+}
+/* Медиазапросы */
+@media (max-width: 1024px) {
+  .header a {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+
+  .card {
+    width: 200px;
+    height: 320px;
+  }
+  .card-img {
+    width: 160px;
+    height: 220px;
+  }
+
+  .info-panel {
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header a {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .card {
+    width: 180px;
+    height: 300px;
+  }
+
+  .info-panel {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .genre-list {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 16px;
+  }
+
+  .header a {
+    font-size: 12px;
+  }
+
+  .card {
+    width: 150px;
+    height: 250px;
+  }
+  .card-img {
+    width: 120px;
+    height: 180px;
+  }
+
+  .info-panel {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .genre {
+    font-size: 10px;
+    padding: 2px;
+  }
 }

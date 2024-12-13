@@ -20,6 +20,10 @@ connectDB();
 
 // Подключение маршрутов
 app.use('/api', authRoutes);
+const bookmarkRoutes = require('./routes/bookmarkRoutes');
+
+// Подключение маршрутов
+app.use('/api/bookmarks', bookmarkRoutes);
 
 // Запуск сервера
 const PORT = process.env.PORT || 5000;

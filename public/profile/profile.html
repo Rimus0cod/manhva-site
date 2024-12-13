@@ -6,7 +6,10 @@
     <title>Profile</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="header">
@@ -24,13 +27,15 @@
       </nav>
       <nav class="navbar">
         <a href="#">Топы</a>
-        <a href="./public/bookmarks/index.html">Закладки</a>
+        <a href="/public/bookmarks/index.html">Закладки</a>
         <a href="#">User</a>
-       <a href="#" class="icon" id="logoutButton"><i class='bx bx-log-out'></i></a>
+        <a href="#" class="icon" id="logoutButton"
+          ><i class="bx bx-log-out"></i
+        ></a>
       </nav>
     </header>
     <div class="profile-conteiner">
-      <img class="avatar" src="/public/image/logo.webp" alt="">
+      <img class="avatar" src="/public/image/logo.webp" alt="" />
       <div class="content">
         <h1 class="username">name</h1>
         <div class="stats">
@@ -38,6 +43,7 @@
           <p class="read">300 Прочитанно глав</p>
         </div>
       </div>
-    </div>    
+    </div>
+    <div id="bookmarkList"></div>
   </body>
 </html>

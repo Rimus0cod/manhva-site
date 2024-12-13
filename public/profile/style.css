@@ -131,6 +131,83 @@ body {
 }
 
 .icon {
-    vertical-align: middle;
-    display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#bookmarkList {
+  display: flex;
+  margin-top: 15dvh;
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  margin: -125px 0 0 -125px;
+}
+
+.bookmark-card {
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 350px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 3px;
+  padding-bottom: 10px;
+  transition: 0.5s;
+}
+
+.bookmark-card img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  padding-top: 10px;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+.bookmark-card h3 {
+  font-size: larger;
+  color: #fff;
+}
+
+.bookmark-card a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.bookmark-card a::before {
+  content: "";
+  position: absolute;
+  top: 96%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: 0.5s;
+}
+
+.bookmark-card button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 80%;
+  height: 30px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+.bookmark-card button:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #ccc;
+  transition: 0.5s;
 }
