@@ -9,7 +9,7 @@
 
 body {
   min-height: 100vh;
-  background: url(/public/image/Tokyo\ Ghoul.jpg);
+  background: url(/public/image/TokyoGhoulRe116_1200x630_Blog_Splash.jpg);
   backdrop-filter: blur(10px);
   background-size: cover;
   background-position: center;
@@ -168,8 +168,7 @@ body {
 
 .slider-container {
   position: relative;
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
   background-color: #2a2a2a;
   border-radius: 10px;
   overflow: hidden;
@@ -357,7 +356,7 @@ body {
   border: none;
   border-radius: 5px;
   margin-right: 5px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .button:hover {
@@ -366,6 +365,7 @@ body {
 
 .slider-content {
   max-height: 100px;
+  width: 100%
 }
 
 .slider-content a {
@@ -390,148 +390,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Для мобильных устройств */
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-    background-size: cover;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-
-  .logo-container {
-    margin-bottom: 15px;
-  }
-
-  .header a {
-    font-size: 14px;
-    margin-left: 20px;
-  }
-
-  .name {
-    margin: 2vh auto;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-    height: auto;
-  }
-
-  .info-panel {
-    flex-direction: column;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .slider-container {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .genre-list {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-  }
-
-  .genre {
-    font-size: 12px;
-    margin: 5px;
-    padding: 5px 10px;
-  }
-
-  .likes {
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .card-like {
-    width: 90%;
-    height: auto;
-  }
-
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центровка кнопок */
-  }
-
-  .button {
-    width: 100%; /* Кнопки занимают всю ширину контейнера */
-    max-width: 300px; /* Ограничим ширину кнопки */
-    font-size: 16px; /* Увеличим текст */
-    padding: 12px 20px; /* Увеличим внутренние отступы */
-    margin-bottom: 10px; /* Отступ между кнопками */
-    border-radius: 8px; /* Закруглим углы */
-  }
-}
-
-/* Для планшетов */
-@media (max-width: 1024px) {
-  .header a {
-    font-size: 16px;
-  }
-
-  .info-panel {
-    gap: 10px;
-  }
-
-  .slider-container {
-    width: 90%;
-  }
-
-  .likes {
-    margin: 5% auto;
-  }
-}
-
-/* Общие изменения для всех меньших экранов */
-@media (max-width: 576px) {
-  .header {
-    padding: 10px;
-  }
-
-  .site-title {
-    font-size: 16px;
-  }
-
-  .name {
-    margin: 20px auto;
-  }
-
-  .info-panel {
-    padding: 10px;
-    gap: 5px;
-  }
-
-  .slider-content {
-    padding: 10px;
-  }
-
-  .genre-list {
-    font-size: 10px;
-  }
-
-  .card-like {
-    margin: 10px auto;
-  }
-
-  .button {
-    font-size: 12px; /* Уменьшаем текст для узких экранов */
-    padding: 8px 10px; /* Уменьшаем отступы */
-  }
-
-  .button-container {
-    padding: 0 5px; /* Меньший внутренний отступ контейнера */
-  }
-}
-
 #reverse-list {
   max-width: 24%;
   text-align: start;
@@ -540,7 +398,7 @@ body {
   color: #ffffff;
   cursor: pointer;
   border-radius: 5px;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
   background: none;
   font-weight: 550;
   position: relative;
@@ -563,4 +421,200 @@ body {
 
 #reverse-list:hover::before {
   width: 100%;
+}
+/* Медиазапросы */
+@media (min-width: 1200px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: 1vh;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 65%;
+    margin-left: 21%;
+    margin-top: -26vh;
+  }
+  .genre-list {
+    width: 68%;
+    flex-wrap: wrap;
+    margin-left: 21%;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+@media (max-width: 1199px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: 1vh;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 65%;
+    margin-left: 21%;
+    margin-top: -26vh;
+  }
+  .genre-list {
+    width: 68%;
+    margin-left: 21%;
+    flex-wrap: wrap;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+@media (max-width: 1023px) {
+  .header {
+    font-size: 1px;
+    width: 100%;
+  }
+  .name {
+    margin-left: 1vh;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 65%;
+    margin-left: 24%;
+    margin-top: -26vh;
+  }
+  .genre-list {
+    width: 68%;
+    flex-wrap: wrap;
+    margin-left: 24%;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: 1vh;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 65%;
+    margin-left: 32%;
+    margin-top: -26vh;
+  }
+  .genre-list {
+    width: 68%;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+@media (max-width: 599px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .info-panel {
+    margin-top: 1%;
+    width: 30%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 45vh;
+    margin-top: -55vh;
+  }
+  .genre-list {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .genre-list {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    font-size: 1px;
+  }
+  .name {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .info-panel {
+    margin-top: 1%;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .genre-list {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .likes {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto
+  }
 }
